@@ -1,0 +1,23 @@
+{
+  "name": "node-token-authentication",
+  "version": "0.0.0",
+  "description": "node-token-authentication\r =========================",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scotch-io/node-token-authentication"
+  },
+  "author": "Chris Sevilleja (scotch.io)",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/scotch-io/node-token-authentication/issues"
+  },
+  "dependencies": {
+    "express-jwt": "~0.4.0",
+    "jsonwebtoken": "~1.1.2",
+    "express": "~4.9.8"
+  }
+}
