@@ -25,14 +25,20 @@ var token = jwt.sign(info, 'ilovescotchyscotch', {
 	expiresInMinutes: 1440 // expires in 24 hours
 });
 
+// basic route
+app.get('/', function(req, res) {
+	res.send('Hello! The magic happens at http://localhost:' + port + '/api');
+});
+
 // get an instance of the router
 var apiRoutes = express.Router();
 
-// authentication
+// authentication (no middleware necessary since this isnt authenticated)
 apiRoutes.post('/authenticate', function(req, res) {
 	console.log(req.params);
 });
 
+// route middleware to authenticate and check token
 apiRoutes.use(function(req, res, next) {
 
 	// check header or url parameters or post parameters for token
@@ -63,8 +69,7 @@ apiRoutes.get('/', function(req, res) {
 });
 
 apiRoutes.get('/check', function(req, res) {
-	res.send('hello');
-
+	res.json(req.decoded);
 });
 
 app.use('/api', apiRoutes);
