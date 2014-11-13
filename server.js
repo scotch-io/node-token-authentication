@@ -72,7 +72,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 			res.json({ success: false, message: 'Authentication failed. User not found.' });
 		} else if (user) {
 
-			// check if password matches (http://blog.mongodb.org/post/32866457221/password-authentication-with-mongoose-part-1)
+			// check if password matches
 			if (user.password != req.body.password) {
 				res.json({ success: false, message: 'Authentication failed. Wrong password.' });
 			} else {
