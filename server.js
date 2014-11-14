@@ -25,7 +25,6 @@ app.use(bodyParser.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
-
 // =================================================================
 // routes ==========================================================
 // =================================================================
@@ -101,7 +100,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 apiRoutes.use(function(req, res, next) {
 
 	// check header or url parameters or post parameters for token
-	var token = (req.body && req.body.token) || (req.query && req.query.token) || req.headers['x-access-token'];
+	var token = req.body.token || req.param('token') || req.headers['x-access-token'];
 
 	// decode token
 	if (token) {
