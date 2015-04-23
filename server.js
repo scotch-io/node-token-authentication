@@ -114,7 +114,7 @@ apiRoutes.use(function(req, res, next) {
 				req.decoded = decoded;	
 				next();
 			}
-		);
+		});
 
 	} else {
 
