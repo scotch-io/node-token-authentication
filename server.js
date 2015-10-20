@@ -33,9 +33,7 @@ app.get('/setup', function(req, res) {
     var nick = new User({
         name: 'abr4xas',
         password: '123456',
-        admin: true,
-        "iss": "abr4xas.org"
-
+        admin: true
     });
     nick.save(function(err) {
         if (err) throw err;
@@ -101,7 +99,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 apiRoutes.use(function(req, res, next) {
 
     // check header or url parameters or post parameters for token
-    var token = req.body.token ||  req.params('token') || req.headers['x-access-token'];
+    var token = req.body.token || req.params('token') || req.headers['x-access-token'];
 
     // decode token
     if (token) {
