@@ -78,7 +78,10 @@ apiRoutes.post('/authenticate', function(req, res) {
 
 				// if user is found and password is right
 				// create a token
-				var token = jwt.sign(user, app.get('superSecret'), {
+				var payload = {
+					admin: user.admin	
+				}
+				var token = jwt.sign(payload, app.get('superSecret'), {
 					expiresIn: 86400 // expires in 24 hours
 				});
 
